@@ -31,15 +31,15 @@
                                 <color key="textColor" red="0.063406221570000004" green="0.56230217220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR5-cj-jvb">
-                                <rect key="frame" x="50.5" y="477" width="274" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR5-cj-jvb">
+                                <rect key="frame" x="50.5" y="477" width="274" height="48"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="274" id="5D2-ku-FYl"/>
-                                    <constraint firstAttribute="height" constant="50" id="u11-3y-JMd"/>
+                                    <constraint firstAttribute="height" constant="48" id="u11-3y-JMd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <state key="normal" title="Enter as guest">
+                                <state key="normal" title="I am new">
                                     <color key="titleColor" red="0.063406221570000004" green="0.56230217220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -48,18 +48,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onEnterAsGuestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dA8-Pf-3rl"/>
+                                    <action selector="onSignUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K3c-Qa-SUe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUa-dp-eev">
-                                <rect key="frame" x="50.5" y="552" width="274" height="50"/>
+                                <rect key="frame" x="50.5" y="554" width="274" height="48"/>
                                 <color key="backgroundColor" red="0.063406221570000004" green="0.56230217220000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="274" id="baf-eL-lKr"/>
-                                    <constraint firstAttribute="height" constant="50" id="fqa-Yc-yRX"/>
+                                    <constraint firstAttribute="height" constant="48" id="fqa-Yc-yRX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <state key="normal" title="Sign in">
+                                <state key="normal" title="I've been here">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -68,7 +68,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onSignInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rGJ-vu-VzG"/>
+                                    <action selector="onSignInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mAl-nz-x5t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,6 +92,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.8" y="89.505247376311857"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="xor-57-BF2">
+            <objects>
+                <viewController id="2L2-NT-2hw" customClass="SignUpViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htK-8N-HNM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="TvC-61-l2j"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdR-vV-CxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="-95"/>
+        </scene>
+        <!--Log in-->
+        <scene sceneID="kD0-5V-AQj">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="iUB-bj-2Dm" customClass="SignInViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TZ3-3u-TIS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45X-pQ-psC">
+                                <rect key="frame" x="50.5" y="90" width="274" height="48"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="JTl-NW-e6p"/>
+                                    <constraint firstAttribute="width" constant="274" id="MiP-70-jaV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onFBSignInAction:" destination="iUB-bj-2Dm" eventType="touchUpInside" id="Ggb-Ka-Nj4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="788-MS-ugJ">
+                                <rect key="frame" x="164" y="454" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="45X-pQ-psC" firstAttribute="top" secondItem="Ef7-wH-73Q" secondAttribute="top" constant="70" id="Ghf-ke-ol3"/>
+                            <constraint firstItem="45X-pQ-psC" firstAttribute="centerX" secondItem="Ef7-wH-73Q" secondAttribute="centerX" id="l1Z-6J-aEH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ef7-wH-73Q"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log in" id="6XX-XM-dRm"/>
+                    <connections>
+                        <outlet property="fbSignInButton" destination="45X-pQ-psC" id="hYe-Y7-arL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E7F-e3-zeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="564"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="AtV-Lt-0kO">

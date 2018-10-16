@@ -9,17 +9,13 @@ import Foundation
 import UIKit
 import FirebaseUI
 
-class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate {
+class WelcomeViewController: UIViewController {
     
     
     // MARK: Publics
     let clover = UIColor.init(red:0.01, green:0.52, blue:0.00, alpha:1.0)
     
     // MARK: Privates
-    fileprivate(set) var auth:Auth?
-    fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
-    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-    
     private var signedIn = false
     
     // MARK: - Memory management
@@ -33,18 +29,9 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
+      
         
-        auth = Auth.auth()
-        authUI = FUIAuth.defaultAuthUI()
-        authUI?.delegate = self
-        
-        let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-            FUIFacebookAuth()
-        ]
-        
-        authUI?.providers = providers
-        
+        /*
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
             guard user != nil else {
                 //self.loginAction(sender: self)
@@ -53,25 +40,25 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
             // User is signed in.
             self.signedIn = true
         }
-        
+        */
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !isUserSignedIn() {
+      //  if !isUserSignedIn() {
             //showLoginView()
-            print("!UserSignIn")
-        }
-        else {
-            print("UserSignIn")
-            self.signedIn = true
-        }
+          //  print("!UserSignIn")
+       // }
+      //  else {
+       //     print("UserSignIn")
+       //     self.signedIn = true
+       // }
     }
     
     deinit {
-        Auth.auth().removeStateDidChangeListener(authStateListenerHandle!)
+       // Auth.auth().removeStateDidChangeListener(authStateListenerHandle!)
         
     }
     
@@ -80,31 +67,22 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
     }
     
     // MARK: - Action Handlers
-    @IBAction func onEnterAsGuestAction(_ sender: Any) {
-        let tuple = (signedIn: false, userName: "")
-        navigateToMainInterface(tuple)
-        //performSegue(withIdentifier: "enterHomeTransition", sender: tuple)
-        
-    }
-    
-    @IBAction func loginAction(sender: AnyObject) {
-        // Present the default login view controller provided by authUI
-        let authViewController = authUI?.authViewController();
-        self.present(authViewController!, animated: true, completion: nil)
-        
+    @IBAction func onSignUpAction(_ sender: Any) {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signUpVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        navigationController?.pushViewController(signUpVC, animated: true)
     }
     
     @IBAction func onSignInAction(_ sender: Any) {
-        if signedIn {
-            let tuple = (signedIn: true, userName: Auth.auth().currentUser!.displayName ?? "")
-            navigateToMainInterface(tuple)
-            //performSegue(withIdentifier: "enterHomeTransition", sender: tuple)
-        } else {
-            showLoginView()
-        }
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        navigationController?.pushViewController(signInVC, animated: true)
+        
     }
     
     // MARK: - Public
+    
+    /*
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         
         if (error != nil) {
@@ -125,9 +103,11 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
             //performSegue(withIdentifier: "enterHomeTransition", sender: tuple)
             
         }
-    } 
+    }
+ */
     
     // MARK: - Private
+    /*
     private func isUserSignedIn() -> Bool {
         guard Auth.auth().currentUser != nil else { return false }
         
@@ -146,7 +126,9 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
             present(authVC, animated: true, completion: nil)
         }
     }
-   
+   */
+    
+    /*
     private func navigateToMainInterface(_ tuple: (signedIn: Bool, userName: String)) {
         
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -176,40 +158,11 @@ class WelcomeViewController: UIViewController, FUIAuthDelegate, ClassHVCDelegate
         present(mainNavigationVC, animated: true, completion: nil)
         */
     }
-    
+ */
+ 
+ 
     // MARK: - Delegates
-    func onSignOut(completion: @escaping ((signedIn: Bool, userName: String)?) -> Void) {
-        // print(signedIn)
-        do {
-            try Auth.auth().signOut()
-            signedIn = false
-            print(signedIn)
-            // self.dismiss(animated: true, completion: nil)
-            let tuple = (signedIn: false, userName: "")
-            completion(tuple)
-        } catch let err {
-            print(err)
-        }
-        
-    }
     
-    func onSignIn() {
-        showLoginView()
-    }
-    
-    // MARK: - Navigation
-   /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let homeVC = segue.destination as! HomeViewController
-        if let data = sender as? (signedIn: Bool, userName: String) {
-            
-            homeVC.data = data
-            
-        }
-        
-    }
-    */
 
 }
 

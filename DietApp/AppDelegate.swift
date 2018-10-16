@@ -8,10 +8,14 @@
 
 import UIKit
 import Firebase
-import FirebaseUI
+import GoogleSignIn
+import FBSDKCoreKit
+//import FBSDKShareKit
+//import FBSDKLoginKit
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     
@@ -22,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions:launchOptions)
+        // FBSDKProfile.enableUpdates(onAccessTokenChange: true)
         
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -46,16 +55,104 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
-        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
-            return true
-        }
-        // other URL handling goes here.
-        return false
+    //MARK: GoogleAuth
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
+        -> Bool {
+            return GIDSignIn.sharedInstance().handle(url,
+                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                     annotation: [:])
+    }
+    //iOS 8.0 and older
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication: sourceApplication,
+                                                 annotation: annotation)
     }
     
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            print(error)
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            // User is signed in
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            // ...
+            print(userId, idToken, fullName, givenName, familyName, email)
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        print("user disconnects")
+    }
+    //
+    
+    //Facebook
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        
+        //2.
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+        
+        return handled
+    }
+    
+    /*
+     //iOS 8.0 and older
+     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+     
+     let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+     // Add any custom logic here.
+     return handled
+     }
+     */
+    /*
+     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+     if let error = error {
+     print(error.localizedDescription)
+     return
+     }
+     let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+     Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+     if let error = error {
+     print("FB!!!!!!!!!!!!!!")
+     print(authResult)
+     return
+     }
+     // User is signed in
+     print("FB!!!!!!!!!!!!!!")
+     print(authResult)
+     }
+     
+     }
+     
+     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+     //log user out
+     let loginManager = FBSDKLoginManager()
+     loginManager.logOut()
+     print("logoutFB")
+     //go back to the Login screen
+     // self.navigationController?.popViewControllerAnimated(true)
+     }
+     */
+    //
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -81,9 +178,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     
     
-    
-    
 }
+
+
 
 extension UIApplication {
     var statusBarView: UIView? {
