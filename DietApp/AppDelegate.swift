@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     
-    let clover = UIColor.init(red:0.01, green:0.52, blue:0.00, alpha:1.0)
-    let tangerine = UIColor.init(red:0.95, green:0.52, blue:0.00, alpha:0.6)
+    //let clover = UIColor.init(red:0.01, green:0.52, blue:0.00, alpha:1.0)
+    //let tangerine = UIColor.init(red:0.95, green:0.52, blue:0.00, alpha:0.6)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -32,25 +32,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions:launchOptions)
         // FBSDKProfile.enableUpdates(onAccessTokenChange: true)
         
-        UIApplication.shared.statusBarStyle = .lightContent
+        //UIApplication.shared.statusBarStyle = .lightContent
         
-        let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+       // let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         // Sets background to a blank/empty image
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+       // UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         // Sets shadow (line below the bar) to a blank image
-        UINavigationBar.appearance().shadowImage = UIImage()
+      //  UINavigationBar.appearance().shadowImage = UIImage()
         // Sets the translucent background color
-        UINavigationBar.appearance().backgroundColor = tangerine//.clear
+       // UINavigationBar.appearance().backgroundColor = tangerine//.clear
         // Set translucent. (Default value is already true, so this can be removed if desired.)
         //UINavigationBar.appearance().isTranslucent = false
         
-        UIApplication.shared.statusBarView?.backgroundColor = tangerine
-        UIApplication.shared.statusBarView?.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+      //  UIApplication.shared.statusBarView?.backgroundColor = tangerine
+      //  UIApplication.shared.statusBarView?.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         
         // UIApplication.shared.statusBarStyle = .lightContent
-        UINavigationBar.appearance().barTintColor = tangerine
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = textAttributes
+      //  UINavigationBar.appearance().barTintColor = tangerine
+     //   UINavigationBar.appearance().tintColor = UIColor.white
+      //  UINavigationBar.appearance().titleTextAttributes = textAttributes
         
         return true
     }
@@ -181,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 }
 
 
-
+/*
 extension UIApplication {
     var statusBarView: UIView? {
         if responds(to: Selector("statusBar")) {
@@ -190,5 +190,5 @@ extension UIApplication {
         return nil
     }
 }
-
+*/
 

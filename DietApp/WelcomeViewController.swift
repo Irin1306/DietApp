@@ -7,13 +7,18 @@
 //
 import Foundation
 import UIKit
-import FirebaseUI
+import Firebase
+import FirebaseAuth
+
 
 class WelcomeViewController: UIViewController {
     
     
     // MARK: Publics
     let clover = UIColor.init(red:0.01, green:0.52, blue:0.00, alpha:1.0)
+    
+    var handle: AuthStateDidChangeListenerHandle?
+    
     
     // MARK: Privates
     private var signedIn = false
@@ -27,11 +32,9 @@ class WelcomeViewController: UIViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
       
+       /*
         
-        /*
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
             guard user != nil else {
                 //self.loginAction(sender: self)
@@ -44,12 +47,36 @@ class WelcomeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //  if !isUserSignedIn() {
+        //showLoginView()
+        //  print("!UserSignIn")
+        // }
+        //  else {
+        //     print("UserSignIn")
+        //     self.signedIn = true
+        // }
+        handle = Auth.auth().addStateDidChangeListener() { (auth, user) in
+            print(auth)
+            if let user = user {
+                print("UserSignIn")
+                print(user)
+                self.signedIn = true
+                
+            }
+        }
+        navigationController?.isNavigationBarHidden = true
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-      //  if !isUserSignedIn() {
+       // if !isUserSignedIn() {
             //showLoginView()
-          //  print("!UserSignIn")
+       //     print("!UserSignIn")
        // }
       //  else {
        //     print("UserSignIn")
@@ -57,13 +84,11 @@ class WelcomeViewController: UIViewController {
        // }
     }
     
-    deinit {
-       // Auth.auth().removeStateDidChangeListener(authStateListenerHandle!)
-        
-    }
+   
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
+        Auth.auth().removeStateDidChangeListener(handle!)
+        navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Action Handlers
