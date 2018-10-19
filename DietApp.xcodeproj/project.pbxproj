@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE6275E42175F1E800AE2950 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE6275E32175F1E800AE2950 /* GoogleService-Info.plist */; };
-		CE6275E82175F31600AE2950 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275E52175F31600AE2950 /* MainNavigationController.swift */; };
 		CE6275E92175F31600AE2950 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275E62175F31600AE2950 /* WelcomeViewController.swift */; };
 		CE6275EA2175F31600AE2950 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275E72175F31600AE2950 /* HomeViewController.swift */; };
 		CE6275ED217613FF00AE2950 /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275EC217613FF00AE2950 /* Button+Extension.swift */; };
@@ -16,6 +15,10 @@
 		CE6275F221762DF300AE2950 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275F121762DF300AE2950 /* SignUpViewController.swift */; };
 		CE6275F421772DE700AE2950 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275F321772DE700AE2950 /* TextField+Extension.swift */; };
 		CE6275F62177789B00AE2950 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275F52177789B00AE2950 /* ViewController+Extension.swift */; };
+		CE6275FA2178BAFA00AE2950 /* FBAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275F92178BAFA00AE2950 /* FBAuthService.swift */; };
+		CE6275FC2178C4DB00AE2950 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FB2178C4DB00AE2950 /* AlertService.swift */; };
+		CE6275FE21794F7B00AE2950 /* ResetPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */; };
+		CE6276002179D5E700AE2950 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FF2179D5E700AE2950 /* ValidationService.swift */; };
 		CEE2340A2175E38B00AB3576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE234092175E38B00AB3576 /* AppDelegate.swift */; };
 		CEE2340F2175E38B00AB3576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2340D2175E38B00AB3576 /* Main.storyboard */; };
 		CEE234112175E38C00AB3576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE234102175E38C00AB3576 /* Assets.xcassets */; };
@@ -26,7 +29,6 @@
 /* Begin PBXFileReference section */
 		35B158E0FA5BF3A36B7276BF /* Pods_DietApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DietApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6275E32175F1E800AE2950 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CE6275E52175F31600AE2950 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		CE6275E62175F31600AE2950 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE6275E72175F31600AE2950 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE6275EC217613FF00AE2950 /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
@@ -34,6 +36,11 @@
 		CE6275F121762DF300AE2950 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CE6275F321772DE700AE2950 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		CE6275F52177789B00AE2950 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		CE6275F721788B6F00AE2950 /* DietApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DietApp.entitlements; sourceTree = "<group>"; };
+		CE6275F92178BAFA00AE2950 /* FBAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBAuthService.swift; sourceTree = "<group>"; };
+		CE6275FB2178C4DB00AE2950 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwViewController.swift; sourceTree = "<group>"; };
+		CE6275FF2179D5E700AE2950 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		CEE234062175E38B00AB3576 /* DietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE234092175E38B00AB3576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE2340E2175E38B00AB3576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,10 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				CE6275E62175F31600AE2950 /* WelcomeViewController.swift */,
-				CE6275E52175F31600AE2950 /* MainNavigationController.swift */,
 				CE6275E72175F31600AE2950 /* HomeViewController.swift */,
 				CE6275EF21762C7D00AE2950 /* SignInViewController.swift */,
 				CE6275F121762DF300AE2950 /* SignUpViewController.swift */,
+				CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -84,6 +91,16 @@
 				CE6275F52177789B00AE2950 /* ViewController+Extension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		CE6275F82178BADD00AE2950 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE6275F92178BAFA00AE2950 /* FBAuthService.swift */,
+				CE6275FB2178C4DB00AE2950 /* AlertService.swift */,
+				CE6275FF2179D5E700AE2950 /* ValidationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CEE233FD2175E38B00AB3576 = {
@@ -107,6 +124,8 @@
 		CEE234082175E38B00AB3576 /* DietApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE6275F82178BADD00AE2950 /* Services */,
+				CE6275F721788B6F00AE2950 /* DietApp.entitlements */,
 				CE6275EE2176141B00AE2950 /* Extensions */,
 				CE6275EB2175FC4F00AE2950 /* Controllers */,
 				CE6275E32175F1E800AE2950 /* GoogleService-Info.plist */,
@@ -159,10 +178,15 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = My;
+				ORGANIZATIONNAME = Irina;
 				TargetAttributes = {
 					CEE234052175E38B00AB3576 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -282,15 +306,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6275FC2178C4DB00AE2950 /* AlertService.swift in Sources */,
 				CE6275E92175F31600AE2950 /* WelcomeViewController.swift in Sources */,
+				CE6276002179D5E700AE2950 /* ValidationService.swift in Sources */,
 				CE6275F221762DF300AE2950 /* SignUpViewController.swift in Sources */,
 				CE6275ED217613FF00AE2950 /* Button+Extension.swift in Sources */,
+				CE6275FA2178BAFA00AE2950 /* FBAuthService.swift in Sources */,
 				CE6275F021762C7D00AE2950 /* SignInViewController.swift in Sources */,
-				CE6275E82175F31600AE2950 /* MainNavigationController.swift in Sources */,
 				CE6275F62177789B00AE2950 /* ViewController+Extension.swift in Sources */,
 				CE6275F421772DE700AE2950 /* TextField+Extension.swift in Sources */,
 				CEE2340A2175E38B00AB3576 /* AppDelegate.swift in Sources */,
 				CE6275EA2175F31600AE2950 /* HomeViewController.swift in Sources */,
+				CE6275FE21794F7B00AE2950 /* ResetPwViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,8 +462,10 @@
 			baseConfigurationReference = D44E3E9EBF7B6AA59907A468 /* Pods-DietApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DietApp/DietApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X4HK63PPXB;
 				INFOPLIST_FILE = DietApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app1.DietApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,8 +484,10 @@
 			baseConfigurationReference = E42A1E312DF5375982539702 /* Pods-DietApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DietApp/DietApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X4HK63PPXB;
 				INFOPLIST_FILE = DietApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -463,6 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app1.DietApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

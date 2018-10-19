@@ -8,19 +8,14 @@
 import Foundation
 import UIKit
 
-protocol ClassHVCDelegate: class {
-    func onSignOut(completion: @escaping (_ data: (signedIn: Bool, userName: String)?) -> Void)
-    func onSignIn()
-}
 
 
 class HomeViewController: UIViewController {
     
+    // MARK: Publics
     // MARK: Privates
-    var data: (signedIn: Bool, userName: String)?
-    
-    weak var delegate: ClassHVCDelegate?
-    
+    // MARK: Outlets
+    @IBOutlet weak var helloTextLabel: UILabel!
     
     // MARK: - Memory management
     override func didReceiveMemoryWarning() {
@@ -31,65 +26,32 @@ class HomeViewController: UIViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let userData = data {
-            print(userData)
-            print(userData.userName)
-            helloTextLabel.text = userData.signedIn ? "Hy, \(userData.userName )!" : "Hy, guest"
+        if let userName = FBAuthService.getCurrentUserName() {
+            helloTextLabel.text =  "Hi, \(userName )!"
             
-            navigationItem.rightBarButtonItem?.title = userData.signedIn ? "SignOut" : "SignIn"
         }
         
     }
     
     // MARK: - Action Handlers
-    @IBOutlet weak var helloTextLabel: UILabel!
-    
     @IBAction func onBackAction(_ sender: Any) {
         //self.dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
         
     }
-   
-    @IBAction func onLoginAction(_ sender: Any) {
-        guard let userData = data else {return}
-        if userData.signedIn {
-           // print(delegate)
-            delegate?.onSignOut{(data) in
-                if  data != nil {
-                    print(userData)
-                    print(userData.userName)
-                    self.helloTextLabel.text = "Hy, guest"
-                    self.navigationItem.rightBarButtonItem?.title =  "SignIn"
-                    self.data = data
-                }
-                
-            }
-        } else if !userData.signedIn {
-            print(userData)
-            
-            //self.dismiss(animated: true, completion: nil)
-            navigationController?.popToRootViewController(animated: true)
-            delegate?.onSignIn()
+    
+    @IBAction func onSignOutAction(_ sender: Any) {
+        FBAuthService.signOut(){() in
+            self.navigationController?.popToRootViewController(animated: true)
         }
         
-    }  
+    }
     
-   
-    
-    /*
-     // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
