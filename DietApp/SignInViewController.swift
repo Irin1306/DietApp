@@ -51,8 +51,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onLogInAction(_ sender: Any) {
         FBAuthService.signInWithEmail(vc: self, email: emailTextField.text!, password: passwordTextField.text!){() in
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            self.navigationController?.pushViewController(homeVC, animated: true)
+            let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(todayVC, animated: true)
             
         }
     }
@@ -60,6 +61,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onResetAction(_ sender: Any) {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let resetPwVC = mainStoryBoard.instantiateViewController(withIdentifier: "ResetPwViewController") as! ResetPwViewController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(resetPwVC, animated: true)
         
     }
@@ -67,6 +69,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onSignUpAction(_ sender: Any) {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let signUpVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(signUpVC, animated: true)
         
     }
@@ -74,8 +77,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onFBSignInAction(_ sender: Any) {
         FBAuthService.signInWithFB(vc: self) {() in
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            self.navigationController?.pushViewController(homeVC, animated: true)
+            let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(todayVC, animated: true)
             
         }
     }

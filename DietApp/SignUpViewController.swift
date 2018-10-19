@@ -66,6 +66,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         FBAuthService.createUser(vc: self, email: emailTextField.text!, password: passwordTextField.text!, name: nameTextField.text!){() in
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
             let signInVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(signInVC, animated: true)
             
         }
@@ -74,6 +75,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onLoginAction(_ sender: Any) {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         let signInVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(signInVC, animated: true)
         
     }

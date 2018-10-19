@@ -15,14 +15,26 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
+    var navigationController: UINavigationController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions:launchOptions)
-        
+        // TODO:
+        /*
+        FBAuthService.reload(){() in
+            print(FBAuthService.getCurrentUserName() as Any, FBAuthService.signedIn, FBAuthService.emailVerified)
+            if FBAuthService.signedIn && FBAuthService.emailVerified {
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
+                self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                self.navigationController?.navigationController?.pushViewController(todayVC, animated: true)
+                
+            }
+        }
+        */
         return true
         
     }

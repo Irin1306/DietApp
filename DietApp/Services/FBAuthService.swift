@@ -53,7 +53,7 @@ final class FBAuthService {
         return provider
     }
     
-    static func reload() {
+    static func reload(complition: @escaping () -> Void) {
         Auth.auth().currentUser?.reload(completion: { (error) in
             if error == nil{
                 signedIn = true
@@ -73,6 +73,8 @@ final class FBAuthService {
                     }
                     
                 }
+                
+                complition()
                
             } else {
                 print(error?.localizedDescription as Any)
@@ -86,36 +88,36 @@ final class FBAuthService {
     
     static func signInWithEmail(vc: UIViewController, email: String, password: String,
                                 complition: @escaping () -> Void) {
-        reload()
+        reload(){() in
+            print(getCurrentUserName() as Any, signedIn, emailVerified)
+            }
+        
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                                AlertService.addAlertWithOutCancel(in: vc, withTitle: nil, withMessage: error.localizedDescription){() in
-                                    //
-                                }
-                                return
-                                
-                            } else if Auth.auth().currentUser != nil {
-                                let user = Auth.auth().currentUser
-                                if let user = user {
-                                    signedIn = true
-                                    if !user.isEmailVerified  {
-                                        AlertService.addAlertWithOutCancel(in: vc, withTitle: nil, withMessage: "Please, verify your email!"){() in
-                                            //
-                                        }
-                                        
-                                    } else  {
-                                        complition()
-                                        emailVerified = true
-                                        
-                                    }
-                                    
-                                 }
-                               
-                            }
-                            
+            
+            if let error = error {
+                print(error.localizedDescription)
+                AlertService.addAlertWithOutCancel(in: vc, withTitle: nil, withMessage: error.localizedDescription){() in
+                    //
+                }
+                return
+                
+            } else {
+                let user = Auth.auth().currentUser
+                if let user = user {
+                    signedIn = true
+                    if !user.isEmailVerified  {
+                        AlertService.addAlertWithOutCancel(in: vc, withTitle: nil, withMessage: "Please, verify your email!"){() in
+                            //
+                        }
+                        
+                    } else  {
+                        complition()
+                        emailVerified = true
+                        
+                    }
+                 }
+            }
         }
- 
     }
     
     static func signInWithFB(vc: UIViewController, complition: @escaping () -> Void) {
@@ -239,7 +241,7 @@ final class FBAuthService {
                 return
                 
             }
-            else if let user = user {
+            else {
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = name
                 changeRequest?.commitChanges { (error) in
@@ -276,11 +278,11 @@ final class FBAuthService {
                 AlertService.addAlertWithOutCancel(in: vc, withTitle: nil, withMessage: "Reset email sent successfully, check your email"){() in
                     //
                 }
-                reload()
-                
+                reload(){() in
+                    print(getCurrentUserName() as Any, signedIn, emailVerified)
+                }
             }
-        }
-        
+        }        
     }
     
     static func signOut(complition: @escaping () -> Void) {

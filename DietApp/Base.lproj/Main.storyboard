@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View Controller-->
+        <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" title=" " id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o2S-0I-rPU"/>
                         <viewControllerLayoutGuide type="bottom" id="BJZ-av-GdH"/>
@@ -106,16 +106,16 @@
                             <constraint firstItem="Qtq-VF-UAP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rlU-VA-QMU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wCh-Uf-HcX"/>
+                    <navigationItem key="navigationItem" title=" " id="wCh-Uf-HcX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.8" y="89.505247376311857"/>
         </scene>
-        <!--Email sign up-->
+        <!--Sign Up-->
         <scene sceneID="xor-57-BF2">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" title="Email sign up" id="2L2-NT-2hw" customClass="SignUpViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="2L2-NT-2hw" customClass="SignUpViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oez-J3-qCN"/>
                         <viewControllerLayoutGuide type="bottom" id="6gW-Io-YPv"/>
@@ -291,6 +291,7 @@
                             <constraint firstItem="md7-bl-i7u" firstAttribute="top" secondItem="htK-8N-HNM" secondAttribute="top" id="tGb-5z-g96"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Sign Up" id="V8W-xl-4nH"/>
                     <connections>
                         <outlet property="emailTextField" destination="GrG-rW-Yd0" id="A3g-Ym-Ru6"/>
                         <outlet property="eyeButton" destination="5yu-59-VCY" id="aJM-Wf-Krl"/>
@@ -302,10 +303,10 @@
             </objects>
             <point key="canvasLocation" x="1749.5999999999999" y="-95.802098950524751"/>
         </scene>
-        <!--Reset password-->
+        <!-- -->
         <scene sceneID="1hM-gd-5Iu">
             <objects>
-                <viewController storyboardIdentifier="ResetPwViewController" title="Reset password" id="dv5-qL-gvh" customClass="ResetPwViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResetPwViewController" title=" " id="dv5-qL-gvh" customClass="ResetPwViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dhE-ao-W8c"/>
                         <viewControllerLayoutGuide type="bottom" id="hGL-PH-3n2"/>
@@ -374,6 +375,7 @@
                             <constraint firstItem="cdk-EI-kfQ" firstAttribute="centerX" secondItem="pKv-vI-2dR" secondAttribute="centerX" id="sGt-rO-73Z"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Password Reset" id="QV9-4w-BuZ"/>
                     <connections>
                         <outlet property="emailTextField" destination="Bxk-1t-w10" id="zIs-oW-rLa"/>
                     </connections>
@@ -382,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="1045.5999999999999" y="774.96251874062978"/>
         </scene>
-        <!--Log in-->
+        <!-- -->
         <scene sceneID="kD0-5V-AQj">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="iUB-bj-2Dm" customClass="SignInViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" title=" " id="iUB-bj-2Dm" customClass="SignInViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q6D-c5-oTS"/>
                         <viewControllerLayoutGuide type="bottom" id="YJh-rY-h5r"/>
@@ -635,7 +637,7 @@
             </objects>
             <point key="canvasLocation" x="1750" y="564"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="AtV-Lt-0kO">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="KHZ-I3-ZZp" customClass="HomeViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -664,30 +666,69 @@
                             <constraint firstAttribute="trailing" secondItem="VNY-CC-xdj" secondAttribute="trailing" constant="16" id="w3T-vZ-jym"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5hn-DV-dG4">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ck0-mi-Cju">
-                            <connections>
-                                <action selector="onBackAction:" destination="KHZ-I3-ZZp" id="1ue-7K-iKK"/>
-                            </connections>
-                        </barButtonItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Home" id="5hn-DV-dG4">
                         <barButtonItem key="rightBarButtonItem" title="SignOut" id="6nm-Yc-Td1">
                             <connections>
                                 <action selector="onSignOutAction:" destination="KHZ-I3-ZZp" id="ysG-aJ-YDG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="helloTextLabel" destination="VNY-CC-xdj" id="VdW-59-NBQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6o-6o-Wda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2631.1999999999998" y="89.505247376311857"/>
+            <point key="canvasLocation" x="2506" y="-748"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home-->
+        <scene sceneID="ZsX-fJ-eP6">
+            <objects>
+                <collectionViewController storyboardIdentifier="TodayCollectionViewController" id="bur-lH-9qK" customClass="TodayCollectionViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rQ7-ew-cdU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zNp-ii-L5c">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WNi-JF-vXl">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="bur-lH-9qK" id="Fbz-yp-wWT"/>
+                            <outlet property="delegate" destination="bur-lH-9qK" id="fS0-OS-Syt"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Item" id="LDJ-M7-c8r"/>
+                    <navigationItem key="navigationItem" title="Home" id="Rp2-mv-4jN">
+                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="Pet-bE-4Dp">
+                            <connections>
+                                <action selector="onSignOutAction:" destination="KHZ-I3-ZZp" id="IJU-NF-ffr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqA-NI-pko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3191" y="-109"/>
+        </scene>
+        <!-- -->
         <scene sceneID="xa3-PI-lBC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ocr-wW-TYp" sceneMemberID="viewController">
+                <navigationController title=" " automaticallyAdjustsScrollViewInsets="NO" id="Ocr-wW-TYp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KrH-2x-ZwW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -705,6 +746,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qpk-D4-hhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="89.505247376311857"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="FPd-Ac-gEA">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ex6-5A-fbF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wFR-7o-FVO">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bur-lH-9qK" kind="relationship" relationship="viewControllers" id="cdj-go-rXi"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KAC-H4-MD3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2441" y="173"/>
         </scene>
     </scenes>
     <resources>

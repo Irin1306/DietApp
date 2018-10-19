@@ -12,9 +12,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     
-    // MARK: Publics
-   // var authStateDidChangeHandle: AuthStateDidChangeListenerHandle?
-    
+    // MARK: Publics    
     // MARK: Privates
     // MARK: Outlets
     
@@ -28,75 +26,46 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        /*
-        authStateDidChangeHandle = Auth.auth().addStateDidChangeListener({ auth, user in
-            guard let user = user else { return }
-            self.signedIn = true
-            let isVerified = user.isEmailVerified
-            self.emailVerified = isVerified
-            print(self.emailVerified)
-        })
-         */
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        FBAuthService.reload()
-        print(FBAuthService.signedIn, FBAuthService.emailVerified)        
-      
+        FBAuthService.reload(){() in
+            print(FBAuthService.getCurrentUserName() as Any, FBAuthService.signedIn, FBAuthService.emailVerified)
+            if FBAuthService.signedIn && FBAuthService.emailVerified {
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                self.navigationController?.pushViewController(todayVC, animated: true)
+                
+            }            
+        }
+        
         navigationController?.isNavigationBarHidden = true
         
     }
-    
-    
-   // deinit {
-      //  Auth.auth().removeStateDidChangeListener(authStateDidChangeHandle!)
-        
-   // }
  
     override func viewWillDisappear(_ animated: Bool) {
-       // if let handle = authStateDidChangeHandle {
-       //     print("handle")
-        //    Auth.auth().removeStateDidChangeListener(handle)
-       // }
         navigationController?.isNavigationBarHidden = false
-    }
-    
-    
+        
+    }    
     
     // MARK: - Action Handlers
     @IBAction func onSignUpAction(_ sender: Any) {
-        
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if FBAuthService.signedIn && FBAuthService.emailVerified {
-            let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            navigationController?.pushViewController(homeVC, animated: true)
-            
-        } else {
-            let signUpVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-            navigationController?.pushViewController(signUpVC, animated: true)
-            
-        }
+        let signUpVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(signUpVC, animated: true)
         
     }
     
     @IBAction func onSignInAction(_ sender: Any) {
-        
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let signInVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(signInVC, animated: true)
         
-        if FBAuthService.signedIn && FBAuthService.emailVerified {
-            let homeVC = mainStoryBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-            navigationController?.pushViewController(homeVC, animated: true)
-            
-        } else {
-            let signInVC = mainStoryBoard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
-            navigationController?.pushViewController(signInVC, animated: true)
-            
-        }
     }
 
 }

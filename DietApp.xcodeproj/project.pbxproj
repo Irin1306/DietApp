@@ -19,6 +19,7 @@
 		CE6275FC2178C4DB00AE2950 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FB2178C4DB00AE2950 /* AlertService.swift */; };
 		CE6275FE21794F7B00AE2950 /* ResetPwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */; };
 		CE6276002179D5E700AE2950 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6275FF2179D5E700AE2950 /* ValidationService.swift */; };
+		CE627604217A125500AE2950 /* TodayCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE627603217A125500AE2950 /* TodayCollectionViewController.swift */; };
 		CEE2340A2175E38B00AB3576 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE234092175E38B00AB3576 /* AppDelegate.swift */; };
 		CEE2340F2175E38B00AB3576 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE2340D2175E38B00AB3576 /* Main.storyboard */; };
 		CEE234112175E38C00AB3576 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE234102175E38C00AB3576 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		CE6275FB2178C4DB00AE2950 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPwViewController.swift; sourceTree = "<group>"; };
 		CE6275FF2179D5E700AE2950 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		CE627603217A125500AE2950 /* TodayCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewController.swift; sourceTree = "<group>"; };
 		CEE234062175E38B00AB3576 /* DietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE234092175E38B00AB3576 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE2340E2175E38B00AB3576 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				CE6275EF21762C7D00AE2950 /* SignInViewController.swift */,
 				CE6275F121762DF300AE2950 /* SignUpViewController.swift */,
 				CE6275FD21794F7B00AE2950 /* ResetPwViewController.swift */,
+				CE627603217A125500AE2950 /* TodayCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -124,8 +127,8 @@
 		CEE234082175E38B00AB3576 /* DietApp */ = {
 			isa = PBXGroup;
 			children = (
-				CE6275F82178BADD00AE2950 /* Services */,
 				CE6275F721788B6F00AE2950 /* DietApp.entitlements */,
+				CE6275F82178BADD00AE2950 /* Services */,
 				CE6275EE2176141B00AE2950 /* Extensions */,
 				CE6275EB2175FC4F00AE2950 /* Controllers */,
 				CE6275E32175F1E800AE2950 /* GoogleService-Info.plist */,
@@ -309,6 +312,7 @@
 				CE6275FC2178C4DB00AE2950 /* AlertService.swift in Sources */,
 				CE6275E92175F31600AE2950 /* WelcomeViewController.swift in Sources */,
 				CE6276002179D5E700AE2950 /* ValidationService.swift in Sources */,
+				CE627604217A125500AE2950 /* TodayCollectionViewController.swift in Sources */,
 				CE6275F221762DF300AE2950 /* SignUpViewController.swift in Sources */,
 				CE6275ED217613FF00AE2950 /* Button+Extension.swift in Sources */,
 				CE6275FA2178BAFA00AE2950 /* FBAuthService.swift in Sources */,

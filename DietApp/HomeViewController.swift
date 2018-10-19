@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
-        super.viewDidLoad()
-     
+        super.viewDidLoad()    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,23 +35,19 @@ class HomeViewController: UIViewController {
             helloTextLabel.text =  "Hi, \(userName )!"
             
         }
-        
     }
     
     // MARK: - Action Handlers
-    @IBAction func onBackAction(_ sender: Any) {
-        //self.dismiss(animated: true, completion: nil)
-        navigationController?.popToRootViewController(animated: true)
-        
-    }
-    
     @IBAction func onSignOutAction(_ sender: Any) {
         FBAuthService.signOut(){() in
             self.navigationController?.popToRootViewController(animated: true)
         }
-        
     }
     
-     
+    // MARK: - Public   
+    
+    // MARK: - Private
+    
+    // MARK: - Delegates
     
 }
