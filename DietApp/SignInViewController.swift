@@ -54,6 +54,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(todayVC, animated: true)
+           // self.performSegue(withIdentifier: "segueToTab", sender: nil)
             
         }
     }
@@ -79,7 +80,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
             let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController?.pushViewController(todayVC, animated: true)
+            //self.navigationController?.pushViewController(todayVC, animated: true)
+            self.performSegue(withIdentifier: "segueToTab", sender: nil)
             
         }
     }

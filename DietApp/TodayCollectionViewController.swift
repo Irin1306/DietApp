@@ -11,7 +11,16 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class TodayCollectionViewController: UICollectionViewController {
-
+    
+    
+    @IBAction func onSignOutAction(_ sender: Any) {
+        
+        FBAuthService.signOut(){() in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

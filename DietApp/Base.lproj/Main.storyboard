@@ -683,7 +683,7 @@
             </objects>
             <point key="canvasLocation" x="2506" y="-748"/>
         </scene>
-        <!--Home-->
+        <!--Today-->
         <scene sceneID="ZsX-fJ-eP6">
             <objects>
                 <collectionViewController storyboardIdentifier="TodayCollectionViewController" id="bur-lH-9qK" customClass="TodayCollectionViewController" customModule="DietApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -713,10 +713,10 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="LDJ-M7-c8r"/>
-                    <navigationItem key="navigationItem" title="Home" id="Rp2-mv-4jN">
-                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="Pet-bE-4Dp">
+                    <navigationItem key="navigationItem" title="Today" id="Dlp-p8-s6b">
+                        <barButtonItem key="rightBarButtonItem" title="SignOut" id="nqX-w5-JIa">
                             <connections>
-                                <action selector="onSignOutAction:" destination="KHZ-I3-ZZp" id="IJU-NF-ffr"/>
+                                <action selector="onSignOutAction:" destination="bur-lH-9qK" id="wg6-cg-X21"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -728,7 +728,7 @@
         <!-- -->
         <scene sceneID="xa3-PI-lBC">
             <objects>
-                <navigationController title=" " automaticallyAdjustsScrollViewInsets="NO" id="Ocr-wW-TYp" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationVC" title=" " automaticallyAdjustsScrollViewInsets="NO" id="Ocr-wW-TYp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KrH-2x-ZwW">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -750,9 +750,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="FPd-Ac-gEA">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ex6-5A-fbF" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="Ex6-5A-fbF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wFR-7o-FVO">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

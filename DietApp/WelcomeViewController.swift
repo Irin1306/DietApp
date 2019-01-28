@@ -30,7 +30,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        /*
         FBAuthService.reload(){() in
             print(FBAuthService.getCurrentUserName() as Any, FBAuthService.signedIn, FBAuthService.emailVerified)
             if FBAuthService.signedIn && FBAuthService.emailVerified {
@@ -38,10 +38,10 @@ class WelcomeViewController: UIViewController {
                 let todayVC = mainStoryBoard.instantiateViewController(withIdentifier: "TodayCollectionViewController") as! TodayCollectionViewController
                 self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                 self.navigationController?.pushViewController(todayVC, animated: true)
-                
+               // self.performSegue(withIdentifier: "segueToTab", sender: nil)
             }            
         }
-        
+        */
         navigationController?.isNavigationBarHidden = true
         
     }
